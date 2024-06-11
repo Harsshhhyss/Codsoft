@@ -1,18 +1,18 @@
 import nltk
 from nltk.chat.util import Chat, reflections
 #Pairs is a list of patterns and responses.
-pairs = [
+Conversation = [
     [
-        r"(.*)Robot",
+        r"(.*)bot",
         ["hi Human, how can I help you "]
     ],
     [
-        r"(.*)question",
+        r"(.*)What you can do?",
         ["I am here for your help"]
     ],
     
     [
-        r"(.*)developed ",
+        r"(.*)creator",
         ["Harsh created me using Python"]
     ],
     [
@@ -27,7 +27,7 @@ pairs = [
     ],
     [
         r"(.*)help(.*) ",
-        ["I can help you ",]
+        ["If you need any help. Just ask ",]
     ],
      [
         r"(.*) your name ?",
@@ -85,6 +85,5 @@ my_dummy_reflections= {
     "go"     : "gone",
     "hello"    : "hey there"
 }
-chat = Chat(pairs, reflections)
+chat = Chat(Conversation, reflections)
 chat.converse()
-print("Chatbot: Hi! I'm a simple chatbot,I'm here to assist you!")
