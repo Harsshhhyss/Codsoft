@@ -1,89 +1,30 @@
-import nltk
-from nltk.chat.util import Chat, reflections
-#Pairs is a list of patterns and responses.
-Conversation = [
-    [
-        r"(.*)bot",
-        ["hi Human, how can I help you "]
-    ],
-    [
-        r"(.*)What you can do?",
-        ["I am here for your help"]
-    ],
-    
-    [
-        r"(.*)creator",
-        ["Harsh created me using Python"]
-    ],
-    [
-        r"(.*)alive ",
-        ["I am Robot, I am just a computer program . Created by Harsh"]
-    ],
-    
-    
-    [
-        r"(.*)name(.*)",
-        ["Hello %2, How are you today ?",]
-    ],
-    [
-        r"(.*)help(.*) ",
-        ["If you need any help. Just ask ",]
-    ],
-     [
-        r"(.*) your name ?",
-        ["My name is AI Robot, but you can just call me robot and I'm a chatbot .",]
-    ],
-    [
-        r"how are you (.*) ?",
-        ["I'm doing very well", "i am great !"]
-    ],
-    [
-        r"sorry (.*)",
-        ["Its alright","Its OK, never mind that",]
-    ],
-    [
-        r"i'm (.*) (good|well|okay|ok)",
-        ["Nice to hear that","Alright, great !",]
-    ],
-    [
-        r"(hi|hey|hello|hola|holla)(.*)",
-        ["Hello", "Hey there",]
-    ],
-    [
-        r"what (.*) want ?",
-        ["Make me an offer I can't refuse",]
-        
-    ],
-    [
-        r"(.*)created(.*)",
-        ["Harsh created me using Python's NLTK library ","Its top secret........... ;)",]
-    ],
-    [
-        r"how (.*) health (.*)",
-        ["Health is very important, but I am a computer, so I don't need to worry about my health ",]
-    ],
-    [
-        r"(.*)(sports|game|sport)(.*)",
-        ["I'm a very big fan of Cricket",]
-    ],
-    [
-        r"who (.*) (Cricketer|Batsman)?",
-        ["Virat Kohli"]
-    ],
-    [
-        r"quit",
-        ["Bye for now. See you soon :) ","It was nice talking to you. See you soon :)"]
-    ],
-    [
-        r"(.*)",
-        ['That is nice to hear']
-    ],
-    
-]
-
-my_dummy_reflections= {
-    "go"     : "gone",
-    "hello"    : "hey there"
+#responses are the fixed pattern and responses of the chatbot
+responses={
+"hi":"Hi there! I'm here to assist you?",
+"hello":"Hello! How can I help you today?",
+"what's your name":"I'm just a chatbot,creates by Harsh.",
+"where are you from":"I'm from the digital world!",
+"how are you":"I'm doin good. What About You",
+"do you have any hobbies or interests?":"I'm always busy helping users, and my interest is helping people in need",
+"what did you eat today?":"I don't eat. I'm a bot",
+"what's your favorite color?":"I'm a chatbot",
+"do you enjoy listening to music?":"I dont listen to music",
+"bye":"Bye! Take care!",
 }
-chat = Chat(Conversation, reflections)
-chat.converse()
+#Using function
+def get_response(user_data):
+    for pattern,response in responses.items():
+        if pattern in user_data:
+            return response
+    return "I'm sorry,I didn't get it."
+print("Harsh's Chatbot: Hi! I'm a chatbot,How can I help you!")
+#Using while loop
+while True:
+    user_data=input("Me: ")
+    if user_data=='bye':
+       print("Chatbot: Goodbye!")
+       break
+#calling the function
+    response=get_response(user_data)
+    print("Harsh's Chatbot:",response)
+#End    
