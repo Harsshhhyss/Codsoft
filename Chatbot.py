@@ -26,7 +26,7 @@ while True:
     if user_data=='bye':
        print("Chatbot: Goodbye!")
        break
-#calling the function
+#calling the function back (callback)
     response=get_response(user_data)
     print("Harsh's Chatbot:",response)
 #End    
